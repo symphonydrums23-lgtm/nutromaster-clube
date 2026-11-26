@@ -27,7 +27,7 @@ header img{width:150px;height:auto;display:block;margin:0 auto}
 .final{background:#0a3d2e;color:#fff;margin:16px;border-radius:20px;padding:26px 22px;text-align:center}
 .final h2{font-size:23px;line-height:1.2}
 .final p{color:#d8e6df;margin:10px 0 0;font-size:14px}
-input{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin:8px 0;font-size:15px}
+input,select{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin:8px 0;font-size:15px;background:#fff}
 .hidden{display:none}
 footer{background:#0a3d2e;text-align:center;padding:22px 20px;color:#fff;font-size:13px;line-height:1.6}
 footer img{width:110px;height:auto;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto}
@@ -77,6 +77,11 @@ footer span{color:#d4af37}
 .benef-item p{font-size:12.5px;margin:0}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90;display:none}
 .overlay.show{display:block}
+.ag-item{background:#f8f8f8;border-radius:14px;padding:14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left}
+.ag-item b{color:#0a3d2e;font-size:14px}
+.ag-item p{font-size:12.5px;margin:2px 0 0}
+.coupon{background:#fff8e1;border:1px dashed #d4af37;border-radius:14px;padding:16px;text-align:center;margin-top:14px}
+.coupon b{font-size:22px;letter-spacing:2px;color:#0a3d2e}
 @media(max-width:760px){
 .app{flex-direction:column}
 .mobile-topbar{display:flex;align-items:center;justify-content:space-between;background:#0a3d2e;padding:12px 14px;position:sticky;top:0;z-index:80}
@@ -144,18 +149,18 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- PLANOS / ÁREA DO ASSINANTE -->
+<!-- ÁREA LOGADA - MENU LATERAL COMPARTILHADO -->
 <div id="planos" class="hidden">
 <div class="app">
 <div class="mobile-topbar"><img src="logo.png" alt="NutroMaster"><button onclick="toggleMenu()">☰ Menu</button></div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 <div class="sidebar" id="sidebar">
 <div class="logo-box"><img src="logo.png" alt="NutroMaster"></div>
-<a href="#" class="active" onclick="toggleMenu();return false"><span>🏠</span> Início</a>
-<a href="#" onclick="toggleMenu();return false"><span>📅</span> Agendamentos</a>
-<a href="#" onclick="toggleMenu();return false"><span>💳</span> Clube do Assinante</a>
-<a href="#" onclick="toggleMenu();show('planoDetalhe');return false"><span>📦</span> Plano</a>
-<a href="#" onclick="toggleMenu();return false"><span>👤</span> Perfil</a>
+<a href="#" id="m-inicio" class="active" onclick="show('planos');return false"><span>🏠</span> Início</a>
+<a href="#" id="m-agend" onclick="show('agendamentos');return false"><span>📅</span> Agendamentos</a>
+<a href="#" id="m-clube" onclick="show('clube');return false"><span>💳</span> Clube do Assinante</a>
+<a href="#" id="m-plano" onclick="show('planoDetalhe');return false"><span>📦</span> Plano</a>
+<a href="#" id="m-perfil" onclick="show('perfil');return false"><span>👤</span> Perfil</a>
 <a href="#" onclick="show('page1');return false"><span>↩</span> Sair</a>
 </div>
 <div class="main">
@@ -164,14 +169,12 @@ footer span{color:#d4af37}
 <p>Você ainda não assinou um plano. Contrate e aproveite os benefícios.</p>
 <a class="link-arrow" href="#" onclick="show('planoDetalhe');return false">Contrate um plano →</a>
 </div>
-<div class="card-dark" onclick="show('planoDetalhe')">
+<div class="card-dark" onclick="show('clube')">
 <div><b>Conheça o Clube do Assinante</b><p>e pegue seu cupom com vantagens</p></div>
 <div class="arrow">→</div>
 </div>
 <div class="card-white" style="padding-bottom:14px">
-<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
 <h3 style="font-size:16px">Benefícios do seu plano</h3>
-</div>
 <div class="benef-grid">
 <div class="benef-item"><div style="font-size:22px">🩺</div><b>1 consulta médica / mês</b><p>Com Dr. Guilherme, endocrinologia e nutrologia.</p></div>
 <div class="benef-item"><div style="font-size:22px">🥗</div><b>1 consulta de nutrição / mês</b><p>Plano alimentar personalizado para você.</p></div>
@@ -182,10 +185,99 @@ footer span{color:#d4af37}
 <p style="text-align:center;font-size:12px;color:#999;margin:8px 0 4px">Sem carência • Cancele quando quiser</p>
 </div>
 <div class="card-white">
-<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">Próximos agendamentos</h3><a href="#" onclick="return false" style="color:#0a3d2e;font-weight:bold;font-size:13px;text-decoration:none">Ver tudo</a></div>
-<div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div>
-<a class="btn btn-dark" style="margin-top:16px" href="#" onclick="return false">+ Novo agendamento</a>
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">Próximos agendamentos</h3><a href="#" onclick="show('agendamentos');return false" style="color:#0a3d2e;font-weight:bold;font-size:13px;text-decoration:none">Ver tudo</a></div>
+<div id="listaResumo"><div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div></div>
+<a class="btn btn-dark" style="margin-top:16px" href="#" onclick="show('agendamentos');return false">+ Novo agendamento</a>
 </div>
+</div>
+</div>
+</div>
+
+<!-- AGENDAMENTOS -->
+<div id="agendamentos" class="hidden">
+<div class="app">
+<div class="mobile-topbar"><img src="logo.png" alt="NutroMaster"><button onclick="toggleMenu()">☰ Menu</button></div>
+<div class="overlay" onclick="toggleMenu()"></div>
+<div class="sidebar">
+<div class="logo-box"><img src="logo.png" alt="NutroMaster"></div>
+<a href="#" onclick="show('planos');return false"><span>🏠</span> Início</a>
+<a href="#" class="active" onclick="show('agendamentos');return false"><span>📅</span> Agendamentos</a>
+<a href="#" onclick="show('clube');return false"><span>💳</span> Clube do Assinante</a>
+<a href="#" onclick="show('planoDetalhe');return false"><span>📦</span> Plano</a>
+<a href="#" onclick="show('perfil');return false"><span>👤</span> Perfil</a>
+<a href="#" onclick="show('page1');return false"><span>↩</span> Sair</a>
+</div>
+<div class="main">
+<div class="card-white"><h3>Meus agendamentos</h3><p>Acompanhe suas consultas e exames.</p><div id="listaAgend"><div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div></div></div>
+<div class="card-white"><h3>+ Novo agendamento</h3>
+<select id="agTipo"><option>Consulta médica - Dr. Guilherme</option><option>Consulta de nutrição</option><option>Bioimpedanciometria</option></select>
+<input id="agData" type="date">
+<select id="agHora"><option>08:00</option><option>09:00</option><option>10:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select>
+<a class="btn btn-dark" href="#" onclick="criarAgendamento();return false">AGENDAR →</a>
+<p id="agOk" style="color:#0a3d2e;font-weight:bold;text-align:center"></p>
+</div>
+<a class="btn btn-ghost" href="#" onclick="show('planos');return false">← Voltar para Início</a>
+</div>
+</div>
+</div>
+
+<!-- CLUBE DO ASSINANTE -->
+<div id="clube" class="hidden">
+<div class="app">
+<div class="mobile-topbar"><img src="logo.png" alt="NutroMaster"><button onclick="toggleMenu()">☰ Menu</button></div>
+<div class="overlay" onclick="toggleMenu()"></div>
+<div class="sidebar">
+<div class="logo-box"><img src="logo.png" alt="NutroMaster"></div>
+<a href="#" onclick="show('planos');return false"><span>🏠</span> Início</a>
+<a href="#" onclick="show('agendamentos');return false"><span>📅</span> Agendamentos</a>
+<a href="#" class="active" onclick="show('clube');return false"><span>💳</span> Clube do Assinante</a>
+<a href="#" onclick="show('planoDetalhe');return false"><span>📦</span> Plano</a>
+<a href="#" onclick="show('perfil');return false"><span>👤</span> Perfil</a>
+<a href="#" onclick="show('page1');return false"><span>↩</span> Sair</a>
+</div>
+<div class="main">
+<div class="card-dark" onclick="show('planoDetalhe')"><div><b>Clube do Assinante</b><p>Todas as vantagens em um só lugar</p></div><div class="arrow">→</div></div>
+<div class="card-white"><h3>🎁 Seu cupom exclusivo</h3><p>Use na contratação do seu plano.</p>
+<div class="coupon"><small>SEU CUPOM</small><br><b id="cupom">NUTRO10</b><br><a class="btn btn-gold" style="margin-top:12px" href="#" onclick="copiarCupom();return false">COPIAR CUPOM</a><p id="cupomOk" style="color:#0a3d2e;font-weight:bold"></p></div></div>
+<div class="card-white"><h3>Benefícios do Clube</h3>
+<div class="benef-grid">
+<div class="benef-item"><div style="font-size:22px">🩺</div><b>Consulta médica</b><p>1x por mês com Dr. Guilherme.</p></div>
+<div class="benef-item"><div style="font-size:22px">🥗</div><b>Nutrição</b><p>1x por mês, plano personalizado.</p></div>
+<div class="benef-item"><div style="font-size:22px">📊</div><b>Bioimpedância</b><p>2x por mês para acompanhar evolução.</p></div>
+<div class="benef-item"><div style="font-size:22px">⭐</div><b>Prioridade</b><p>Agendamento prioritário, sem fila.</p></div>
+</div>
+<a class="btn btn-gold" href="#" onclick="show('planoDetalhe');return false">VER MEU PLANO →</a></div>
+<div class="card-white"><h3>👯 Indique e ganhe</h3><p>Indique um amigo e ganhe vantagens no seu plano. Compartilhe seu link:</p><input id="linkInd" value="nutromaster.com.br/indique" readonly><a class="btn btn-dark" href="#" onclick="copiarLink();return false">COPIAR LINK DE INDICAÇÃO</a><p id="linkOk" style="color:#0a3d2e;font-weight:bold;text-align:center"></p></div>
+<a class="btn btn-ghost" href="#" onclick="show('planos');return false">← Voltar para Início</a>
+</div>
+</div>
+</div>
+
+<!-- PERFIL -->
+<div id="perfil" class="hidden">
+<div class="app">
+<div class="mobile-topbar"><img src="logo.png" alt="NutroMaster"><button onclick="toggleMenu()">☰ Menu</button></div>
+<div class="overlay" onclick="toggleMenu()"></div>
+<div class="sidebar">
+<div class="logo-box"><img src="logo.png" alt="NutroMaster"></div>
+<a href="#" onclick="show('planos');return false"><span>🏠</span> Início</a>
+<a href="#" onclick="show('agendamentos');return false"><span>📅</span> Agendamentos</a>
+<a href="#" onclick="show('clube');return false"><span>💳</span> Clube do Assinante</a>
+<a href="#" onclick="show('planoDetalhe');return false"><span>📦</span> Plano</a>
+<a href="#" class="active" onclick="show('perfil');return false"><span>👤</span> Perfil</a>
+<a href="#" onclick="show('page1');return false"><span>↩</span> Sair</a>
+</div>
+<div class="main">
+<div class="card-white"><h3>Meu Perfil</h3><p>Seus dados para um atendimento personalizado.</p>
+<input id="pNome" placeholder="Seu nome completo">
+<input id="pEmail" placeholder="Seu e-mail">
+<input id="pFone" placeholder="WhatsApp / Telefone">
+<input id="pNasc" type="date">
+<select id="pObj"><option>Meu objetivo: Emagrecer</option><option>Meu objetivo: Ganhar massa muscular</option><option>Meu objetivo: Saúde e disposição</option><option>Meu objetivo: Performance</option></select>
+<a class="btn btn-dark" href="#" onclick="salvarPerfil();return false">SALVAR PERFIL</a>
+<p id="perfilOk" style="color:#0a3d2e;font-weight:bold;text-align:center"></p>
+</div>
+<a class="btn btn-ghost" href="#" onclick="show('planos');return false">← Voltar para Início</a>
 </div>
 </div>
 </div>
@@ -233,21 +325,54 @@ footer span{color:#d4af37}
 <footer><img src="logo.png" alt="NutroMaster"><span>nutromaster.com.br</span><br>© 2026 NutroMaster - Todos os direitos reservados</footer>
 
 <script>
+let agendamentos=[];
 function show(id){
-['page1','page2','login','planos','planoDetalhe','pagamento','sucesso'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+['page1','page2','login','planos','agendamentos','clube','perfil','planoDetalhe','pagamento','sucesso'].forEach(x=>document.getElementById(x).classList.add('hidden'));
 document.getElementById(id).classList.remove('hidden');
-document.getElementById('topHeader').style.display = (id==='planos') ? 'none' : 'block';
-document.getElementById('sidebar').classList.remove('open');
-document.getElementById('overlay').classList.remove('show');
+let inApp=['planos','agendamentos','clube','perfil'].includes(id);
+document.getElementById('topHeader').style.display = inApp ? 'none' : 'block';
+document.querySelectorAll('.sidebar').forEach(s=>s.classList.remove('open'));
+document.querySelectorAll('.overlay').forEach(o=>o.classList.remove('show'));
 window.scrollTo(0,0)
 }
 function toggleMenu(){
-document.getElementById('sidebar').classList.toggle('open');
-document.getElementById('overlay').classList.toggle('show');
+document.querySelectorAll('.sidebar').forEach(s=>s.classList.toggle('open'));
+document.querySelectorAll('.overlay').forEach(o=>o.classList.toggle('show'));
 }
 function login(){
 if(document.getElementById('senha').value==='teste123'){show('planos')}
 else{document.getElementById('erro').innerText='Senha de teste incorreta. Use: teste123'}
+}
+function criarAgendamento(){
+let tipo=document.getElementById('agTipo').value;
+let data=document.getElementById('agData').value;
+let hora=document.getElementById('agHora').value;
+if(!data){document.getElementById('agOk').innerText='Escolha uma data 🙂';return}
+let d=data.split('-').reverse().join('/');
+agendamentos.push({tipo:tipo,data:d,hora:hora});
+renderAgend();
+document.getElementById('agOk').innerText='✅ Agendado! '+tipo+' - '+d+' às '+hora;
+show('agendamentos');
+}
+function renderAgend(){
+let html=agendamentos.map(a=>'<div class="ag-item"><div><b>'+a.tipo+'</b><p>'+a.data+' às '+a.hora+' • Confirmado</p></div><div style="font-size:22px">📅</div></div>').join('');
+if(!html) html='<div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div>';
+document.getElementById('listaAgend').innerHTML=html;
+document.getElementById('listaResumo').innerHTML=html;
+}
+function salvarPerfil(){
+let nome=document.getElementById('pNome').value||'Paciente';
+document.getElementById('perfilOk').innerText='✅ Perfil salvo, '+nome+'! Bem-vindo(a) ao Clube!';
+}
+function copiarCupom(){
+let t=document.getElementById('cupom').innerText;
+if(navigator.clipboard) navigator.clipboard.writeText(t);
+document.getElementById('cupomOk').innerText='✅ Cupom NUTRO10 copiado!';
+}
+function copiarLink(){
+let el=document.getElementById('linkInd'); el.select();
+if(navigator.clipboard) navigator.clipboard.writeText(el.value);
+document.getElementById('linkOk').innerText='✅ Link copiado! Envie para seus amigos.';
 }
 </script>
 </body>
