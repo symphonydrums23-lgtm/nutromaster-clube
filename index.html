@@ -13,12 +13,6 @@ header img{width:150px;height:auto;display:block;margin:0 auto}
 .hero h2{font-size:28px;line-height:1.15;color:#0a3d2e}
 .hero p{margin:10px 0;color:#666;line-height:1.5;font-size:15px}
 .badge{background:#fff8e1;color:#8a6d00;border:1px solid #f0d98c;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:bold;letter-spacing:1px;display:inline-block}
-.price{background:#0a3d2e;color:#fff;border-radius:16px;padding:25px;margin:20px;text-align:center}
-.price small{color:#d4af37}
-.price h3{font-size:42px;margin:10px 0}
-.price ul{list-style:none;text-align:left;max-width:320px;margin:20px auto}
-.price li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2)}
-.price li:before{content:"✓ ";color:#d4af37;font-weight:bold}
 .btn{display:block;background:#25D366;color:#fff;text-decoration:none;padding:17px;border-radius:30px;font-weight:bold;font-size:17px;margin:18px 0 0;text-align:center;box-shadow:0 4px 14px rgba(37,211,102,.35)}
 .btn-gold{background:#d4af37;box-shadow:0 4px 14px rgba(212,175,55,.35)}
 .btn-dark{background:#0a3d2e;box-shadow:none}
@@ -32,12 +26,6 @@ header img{width:150px;height:auto;display:block;margin:0 auto}
 .final{background:#0a3d2e;color:#fff;margin:16px;border-radius:20px;padding:26px 22px;text-align:center}
 .final h2{font-size:23px;line-height:1.2}
 .final p{color:#d8e6df;margin:10px 0 0;font-size:14px}
-.cards{display:flex;flex-direction:column;gap:12px;text-align:left;margin-top:14px}
-.card{background:#fdfbf5;border:1px solid #eee;border-radius:14px;padding:16px}
-.card .stars{color:#f5b301;font-size:14px}
-.card p{font-size:14px;line-height:1.5}
-.card b{color:#0a3d2e}
-.card small{font-size:12px;color:#888}
 input{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin:8px 0;font-size:15px}
 .hidden{display:none}
 footer{background:#0a3d2e;text-align:center;padding:22px 20px;color:#fff;font-size:13px;line-height:1.6}
@@ -47,7 +35,6 @@ footer span{color:#d4af37}
 .progress{display:flex;gap:6px;justify-content:center;margin:14px 0 0}
 .progress span{width:28px;height:5px;border-radius:10px;background:#ddd}
 .progress span.on{background:#d4af37}
-/* PÁGINA 2 - MODELO ESCURO */
 .depo-dark{background:#0a3d2e;margin:16px;border-radius:20px;padding:26px 16px;text-align:center}
 .depo-dark h3{color:#fff;font-size:20px;line-height:1.35;margin-bottom:18px}
 .depo-row{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;text-align:left;scroll-snap-type:x mandatory}
@@ -58,25 +45,57 @@ footer span{color:#d4af37}
 .depo-person b{color:#fff;font-size:14px}
 .depo-person .stars{color:#f5b301;font-size:13px}
 .depo-person small{color:#cfe0d8;font-size:11px}
+
+/* ===== LAYOUT MODERNO - ÁREA DO ASSINANTE ===== */
+.app{display:flex;min-height:100vh;background:#f4f4f4}
+.sidebar{width:240px;background:#fff;padding:20px 14px;flex-shrink:0;border-right:1px solid #eee}
+.sidebar .logo-box{background:#0a3d2e;border-radius:14px;padding:22px 12px;text-align:center;margin-bottom:22px}
+.sidebar .logo-box img{width:130px;height:auto}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:12px 12px;border-radius:12px;color:#222;text-decoration:none;font-weight:bold;font-size:15px;margin-bottom:4px}
+.sidebar a.active{background:#0a3d2e;color:#fff}
+.sidebar a span{font-size:18px}
+.main{flex:1;padding:26px;max-width:820px}
+.card-white{background:#fff;border-radius:16px;padding:22px;margin-bottom:16px}
+.card-white h3{font-size:18px;color:#0a3d2e}
+.card-white p{font-size:14px;color:#666;margin-top:6px;line-height:1.5}
+.link-arrow{color:#0a3d2e;font-weight:bold;font-size:14px;text-decoration:none;display:inline-block;margin-top:12px}
+.card-dark{background:#0a3d2e;border-radius:16px;padding:22px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#fff;cursor:pointer}
+.card-dark b{font-size:17px;line-height:1.4}
+.card-dark p{font-size:13px;color:#d8e6df;margin-top:4px}
+.card-dark .arrow{font-size:22px}
+.price-box{background:#0a3d2e;color:#fff;border-radius:16px;padding:24px;text-align:center}
+.price-box small{color:#d4af37}
+.price-box h3{font-size:42px;margin:10px 0;color:#fff}
+.price-box ul{list-style:none;text-align:left;max-width:320px;margin:18px auto}
+.price-box li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:14px}
+.price-box li:before{content:"✓ ";color:#d4af37;font-weight:bold}
+.empty{text-align:center;padding:24px 0 10px;color:#888}
+.empty .icon{font-size:52px;opacity:.4}
+@media(max-width:760px){
+.app{flex-direction:column}
+.sidebar{width:100%;padding:12px;border-right:none;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px;overflow-x:auto}
+.sidebar .logo-box{margin:0;padding:10px 14px;min-width:110px}
+.sidebar .logo-box img{width:90px}
+.sidebar a{white-space:nowrap;margin:0;padding:10px 12px}
+.main{padding:16px}
+}
 </style>
 </head>
 <body>
-<header><img src="logo.png" alt="NutroMaster Logo"></header>
+<header id="topHeader"><img src="logo.png" alt="NutroMaster Logo"></header>
 
-<!-- PÁGINA 1 - ANTES / DEPOIS + CLUBE -->
+<!-- PÁGINA 1 -->
 <div id="page1">
 <div class="hero">
 <span class="badge">MÉTODO EXCLUSIVO NUTROMASTER</span>
 <h2 style="margin-top:14px">Emagreça com médico + nutri, todo mês.</h2>
 <p>Sem fila. Sem carência. Sem fidelidade.</p>
 </div>
-
 <div class="section">
 <h3>Resultado real de quem fez o Método</h3>
 <div class="ba"><span>ANTES / DEPOIS</span><img src="antes-depois-1.jpg" alt="Antes e depois"></div>
 <p class="aviso2">Resultado varia de pessoa para pessoa.</p>
 </div>
-
 <div class="final">
 <h2>Clube de Saúde NutroMaster</h2>
 <p>Médico + nutri + bioimpedância, todo mês.<br>Por menos que 1 consulta avulsa.</p>
@@ -85,32 +104,14 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- PÁGINA 2 - DEPOIMENTOS - MODELO ESCURO IGUAL AO PRINT -->
+<!-- PÁGINA 2 -->
 <div id="page2" class="hidden">
 <div class="depo-dark">
 <h3>Veja os depoimentos de quem transformou seu estilo de vida com mais performance, saúde e qualidade de vida.</h3>
 <div class="depo-row">
-<div class="depo-card">
-<p>Experiência fantástica de atendimento. Desde o primeiro contato. Clínica de alto padrão, confortável, bem localizada, fácil acesso, estacionamento seguro. Com o tratamento do Dr. Guilherme Bruno e sua equipe especializada já emagreci 10 kg, baixei as taxas de colesterol, diabetes... Hoje sou pura vitalidade, disposição para praticar atividade física diariamente e minha autoestima nunca esteve tão elevada.</p>
-<div class="depo-person">
-<div class="depo-avatar" style="background:#7b2d8b">👤</div>
-<div><b>Alfredo Sena</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
-</div>
-</div>
-<div class="depo-card">
-<p>Dr Guilherme é extremamente profissional e atencioso. Corrigiu todo o meu sistema hormonal me orientando detalhadamente durante todo o processo.<br><br>A clínica é novíssima e muito bem estruturada, de fácil acesso e boa localização, com estacionamento no local e preço muito baixo.</p>
-<div class="depo-person">
-<div class="depo-avatar" style="background:#3aa76d">👤</div>
-<div><b>Nelson Falseti</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
-</div>
-</div>
-<div class="depo-card">
-<p>Dr Guilherme é top dos top, o melhor nutrólogo que já fui, estou muito contente com meu tratamento, já eliminei 9 kilos e vamos rumo aos -15, super atencioso e dedicado obrigada.</p>
-<div class="depo-person">
-<div class="depo-avatar" style="background:#c65bc0">👤</div>
-<div><b>Josiane Silva</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
-</div>
-</div>
+<div class="depo-card"><p>Experiência fantástica de atendimento. Desde o primeiro contato. Clínica de alto padrão, confortável, bem localizada, fácil acesso, estacionamento seguro. Com o tratamento do Dr. Guilherme Bruno e sua equipe especializada já emagreci 10 kg, baixei as taxas de colesterol, diabetes... Hoje sou pura vitalidade, disposição para praticar atividade física diariamente e minha autoestima nunca esteve tão elevada.</p><div class="depo-person"><div class="depo-avatar" style="background:#7b2d8b">👤</div><div><b>Alfredo Sena</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div></div></div>
+<div class="depo-card"><p>Dr Guilherme é extremamente profissional e atencioso. Corrigiu todo o meu sistema hormonal me orientando detalhadamente durante todo o processo.<br><br>A clínica é novíssima e muito bem estruturada, de fácil acesso e boa localização, com estacionamento no local e preço muito baixo.</p><div class="depo-person"><div class="depo-avatar" style="background:#3aa76d">👤</div><div><b>Nelson Falseti</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div></div></div>
+<div class="depo-card"><p>Dr Guilherme é top dos top, o melhor nutrólogo que já fui, estou muito contente com meu tratamento, já eliminei 9 kilos e vamos rumo aos -15, super atencioso e dedicado obrigada.</p><div class="depo-person"><div class="depo-avatar" style="background:#c65bc0">👤</div><div><b>Josiane Silva</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div></div></div>
 </div>
 <a class="btn" href="#" onclick="show('login');return false">QUERO MEU RESULTADO →</a>
 <a class="btn" style="background:rgba(255,255,255,.15);color:#fff;box-shadow:none" href="#" onclick="show('page1');return false">← Voltar</a>
@@ -118,6 +119,7 @@ footer span{color:#d4af37}
 </div>
 </div>
 
+<!-- LOGIN -->
 <div id="login" class="hidden">
 <div class="section">
 <h3>Entrar no NutroMaster Clube</h3>
@@ -130,8 +132,40 @@ footer span{color:#d4af37}
 </div>
 </div>
 
+<!-- PLANOS / ÁREA DO ASSINANTE - LAYOUT MODERNO -->
 <div id="planos" class="hidden">
-<div class="price">
+<div class="app">
+<div class="sidebar">
+<div class="logo-box"><img src="logo.png" alt="NutroMaster"></div>
+<a href="#" class="active" onclick="return false"><span>🏠</span> Início</a>
+<a href="#" onclick="return false"><span>📅</span> Agendamentos</a>
+<a href="#" onclick="return false"><span>💳</span> Clube do Assinante</a>
+<a href="#" onclick="show('planoDetalhe');return false"><span>📦</span> Plano</a>
+<a href="#" onclick="return false"><span>👤</span> Perfil</a>
+<a href="#" onclick="show('page1');return false"><span>↩</span> Sair</a>
+</div>
+<div class="main">
+<div class="card-white">
+<h3>Seu plano</h3>
+<p>Você ainda não assinou um plano. Contrate e aproveite os benefícios.</p>
+<a class="link-arrow" href="#" onclick="show('planoDetalhe');return false">Contrate um plano →</a>
+</div>
+<div class="card-dark" onclick="show('planoDetalhe')">
+<div><b>Conheça o Clube do Assinante</b><p>e pegue seu cupom com vantagens</p></div>
+<div class="arrow">→</div>
+</div>
+<div class="card-white">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">Próximos agendamentos</h3><a href="#" onclick="return false" style="color:#0a3d2e;font-weight:bold;font-size:13px;text-decoration:none">Ver tudo</a></div>
+<div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div>
+<a class="btn btn-dark" style="margin-top:16px" href="#" onclick="return false">+ Novo agendamento</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- DETALHE DO PLANO -->
+<div id="planoDetalhe" class="hidden">
+<div class="price-box" style="margin:16px">
 <small>PLANO COMPLETO</small>
 <h3>R$ 100,00<small>/mês</small></h3>
 <ul>
@@ -141,10 +175,12 @@ footer span{color:#d4af37}
 <li>Acompanhamento contínuo</li>
 </ul>
 <a class="btn" style="background:#d4af37;margin:20px 0 10px;box-shadow:none" href="#" onclick="alert('Vantagens: Consulta médica mensal, Nutrição, Bioimpedância, Acompanhamento contínuo');return false">Confira as vantagens</a>
-<a class="btn btn-dark" style="margin:10px 0 0" href="#" onclick="show('pagamento');return false">Contratar este plano</a>
+<a class="btn btn-dark" style="margin:10px 0 0;background:#fff;color:#0a3d2e" href="#" onclick="show('pagamento');return false">Contratar este plano</a>
+<a class="btn" style="background:rgba(255,255,255,.15);color:#fff;box-shadow:none" href="#" onclick="show('planos');return false">← Voltar</a>
 </div>
 </div>
 
+<!-- PAGAMENTO -->
 <div id="pagamento" class="hidden">
 <div class="section" style="text-align:left">
 <h3 style="text-align:center">Pagamento - Cartão de Crédito</h3>
@@ -158,6 +194,7 @@ footer span{color:#d4af37}
 </div>
 </div>
 
+<!-- SUCESSO -->
 <div id="sucesso" class="hidden">
 <div class="section">
 <h3>✅ Assinatura simulada com sucesso!</h3>
@@ -170,8 +207,9 @@ footer span{color:#d4af37}
 
 <script>
 function show(id){
-['page1','page2','login','planos','pagamento','sucesso'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+['page1','page2','login','planos','planoDetalhe','pagamento','sucesso'].forEach(x=>document.getElementById(x).classList.add('hidden'));
 document.getElementById(id).classList.remove('hidden');
+document.getElementById('topHeader').style.display = (id==='planos') ? 'none' : 'block';
 window.scrollTo(0,0)
 }
 function login(){
