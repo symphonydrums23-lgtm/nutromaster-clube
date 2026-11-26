@@ -45,8 +45,6 @@ footer span{color:#d4af37}
 .depo-person b{color:#fff;font-size:14px}
 .depo-person .stars{color:#f5b301;font-size:13px}
 .depo-person small{color:#cfe0d8;font-size:11px}
-
-/* ===== LAYOUT MODERNO - ÁREA DO ASSINANTE ===== */
 .app{display:flex;min-height:100vh;background:#f4f4f4}
 .sidebar{width:240px;background:#fff;padding:20px 14px;flex-shrink:0;border-right:1px solid #eee}
 .sidebar .logo-box{background:#0a3d2e;border-radius:14px;padding:22px 12px;text-align:center;margin-bottom:22px}
@@ -71,6 +69,10 @@ footer span{color:#d4af37}
 .price-box li:before{content:"✓ ";color:#d4af37;font-weight:bold}
 .empty{text-align:center;padding:24px 0 10px;color:#888}
 .empty .icon{font-size:52px;opacity:.4}
+.benef-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;text-align:left}
+.benef-item{background:#f8f8f8;border-radius:14px;padding:14px}
+.benef-item b{font-size:14px;color:#0a3d2e;display:block;margin:6px 0 3px}
+.benef-item p{font-size:12.5px;margin:0}
 @media(max-width:760px){
 .app{flex-direction:column}
 .sidebar{width:100%;padding:12px;border-right:none;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px;overflow-x:auto}
@@ -132,7 +134,7 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- PLANOS / ÁREA DO ASSINANTE - LAYOUT MODERNO -->
+<!-- PLANOS / ÁREA DO ASSINANTE - COM BENEFÍCIOS -->
 <div id="planos" class="hidden">
 <div class="app">
 <div class="sidebar">
@@ -154,6 +156,23 @@ footer span{color:#d4af37}
 <div><b>Conheça o Clube do Assinante</b><p>e pegue seu cupom com vantagens</p></div>
 <div class="arrow">→</div>
 </div>
+
+<!-- BENEFÍCIOS -->
+<div class="card-white" style="padding-bottom:14px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+<h3 style="font-size:16px">Benefícios do seu plano</h3>
+<span style="background:#fff8e1;color:#8a6d00;border:1px solid #f0d98c;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:bold;white-space:nowrap">R$ 100,00 / mês</span>
+</div>
+<div class="benef-grid">
+<div class="benef-item"><div style="font-size:22px">🩺</div><b>1 consulta médica / mês</b><p>Com Dr. Guilherme, endocrinologia e nutrologia.</p></div>
+<div class="benef-item"><div style="font-size:22px">🥗</div><b>1 consulta de nutrição / mês</b><p>Plano alimentar personalizado para você.</p></div>
+<div class="benef-item"><div style="font-size:22px">📊</div><b>2x Bioimpedanciometria</b><p>Acompanhe gordura, massa muscular e água.</p></div>
+<div class="benef-item"><div style="font-size:22px">💬</div><b>Acompanhamento contínuo</b><p>Sem fila, sem carência, sem fidelidade.</p></div>
+</div>
+<a class="btn btn-gold" style="margin:16px 0 6px" href="#" onclick="show('planoDetalhe');return false">QUERO ESSES BENEFÍCIOS →</a>
+<p style="text-align:center;font-size:12px;color:#999;margin:8px 0 4px">Por menos que 1 consulta avulsa • Cancele quando quiser</p>
+</div>
+
 <div class="card-white">
 <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:15px">Próximos agendamentos</h3><a href="#" onclick="return false" style="color:#0a3d2e;font-weight:bold;font-size:13px;text-decoration:none">Ver tudo</a></div>
 <div class="empty"><div class="icon">📅🔍</div><p style="margin-top:14px">Você não tem nenhum agendamento marcado</p></div>
