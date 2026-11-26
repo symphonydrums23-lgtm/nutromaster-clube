@@ -47,6 +47,17 @@ footer span{color:#d4af37}
 .progress{display:flex;gap:6px;justify-content:center;margin:14px 0 0}
 .progress span{width:28px;height:5px;border-radius:10px;background:#ddd}
 .progress span.on{background:#d4af37}
+/* PÁGINA 2 - MODELO ESCURO */
+.depo-dark{background:#0a3d2e;margin:16px;border-radius:20px;padding:26px 16px;text-align:center}
+.depo-dark h3{color:#fff;font-size:20px;line-height:1.35;margin-bottom:18px}
+.depo-row{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;text-align:left;scroll-snap-type:x mandatory}
+.depo-card{min-width:260px;flex:1;background:#14453a;border-radius:16px;padding:18px;scroll-snap-align:start}
+.depo-card p{color:#fff;font-size:13.5px;line-height:1.6}
+.depo-person{display:flex;align-items:center;gap:10px;margin-top:16px}
+.depo-avatar{width:38px;height:38px;min-width:38px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold}
+.depo-person b{color:#fff;font-size:14px}
+.depo-person .stars{color:#f5b301;font-size:13px}
+.depo-person small{color:#cfe0d8;font-size:11px}
 </style>
 </head>
 <body>
@@ -74,17 +85,35 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- PÁGINA 2 - DEPOIMENTOS -->
+<!-- PÁGINA 2 - DEPOIMENTOS - MODELO ESCURO IGUAL AO PRINT -->
 <div id="page2" class="hidden">
-<div class="section">
-<h3>Veja os depoimentos de quem transformou seu estilo de vida</h3>
-<div class="cards">
-<div class="card"><p><b>Tainá Farias</b><br>"O atendimento da clínica é maravilhoso! Faço acompanhamento com o Dr. Guilherme. Ele tem 2 especialidades. Endocrinologia / Metabologia e Nutrologia. Sempre atencioso, acolhedor e profissional."</p><div class="stars">★★★★★</div><small>Via Google meu negócio</small></div>
-<div class="card"><p><b>Alfredo Sena</b><br>"Experiência fantástica de atendimento. Clínica de alto padrão, confortável, bem localizada. Com o tratamento do Dr. Guilherme Bruno e sua equipe já emagreci 10 kg, baixei as taxas de colesterol, diabetes... Hoje sou pura vitalidade."</p><div class="stars">★★★★★</div><small>Via Google meu negócio</small></div>
-<div class="card"><p><b>Nelson Falseti</b><br>"Dr Guilherme é extremamente profissional e atencioso. Corrigiu todo o meu sistema hormonal me orientando detalhadamente durante todo o processo. A clínica é novíssima e muito bem estruturada."</p><div class="stars">★★★★★</div><small>Via Google meu negócio</small></div>
+<div class="depo-dark">
+<h3>Veja os depoimentos de quem transformou seu estilo de vida com mais performance, saúde e qualidade de vida.</h3>
+<div class="depo-row">
+<div class="depo-card">
+<p>Experiência fantástica de atendimento. Desde o primeiro contato. Clínica de alto padrão, confortável, bem localizada, fácil acesso, estacionamento seguro. Com o tratamento do Dr. Guilherme Bruno e sua equipe especializada já emagreci 10 kg, baixei as taxas de colesterol, diabetes... Hoje sou pura vitalidade, disposição para praticar atividade física diariamente e minha autoestima nunca esteve tão elevada.</p>
+<div class="depo-person">
+<div class="depo-avatar" style="background:#7b2d8b">👤</div>
+<div><b>Alfredo Sena</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
+</div>
+</div>
+<div class="depo-card">
+<p>Dr Guilherme é extremamente profissional e atencioso. Corrigiu todo o meu sistema hormonal me orientando detalhadamente durante todo o processo.<br><br>A clínica é novíssima e muito bem estruturada, de fácil acesso e boa localização, com estacionamento no local e preço muito baixo.</p>
+<div class="depo-person">
+<div class="depo-avatar" style="background:#3aa76d">👤</div>
+<div><b>Nelson Falseti</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
+</div>
+</div>
+<div class="depo-card">
+<p>Dr Guilherme é top dos top, o melhor nutrólogo que já fui, estou muito contente com meu tratamento, já eliminei 9 kilos e vamos rumo aos -15, super atencioso e dedicado obrigada.</p>
+<div class="depo-person">
+<div class="depo-avatar" style="background:#c65bc0">👤</div>
+<div><b>Josiane Silva</b><br><span class="stars">★★★★★</span><br><small>Via Google meu negócio</small></div>
+</div>
+</div>
 </div>
 <a class="btn" href="#" onclick="show('login');return false">QUERO MEU RESULTADO →</a>
-<a class="btn btn-ghost" href="#" onclick="show('page1');return false">← Voltar</a>
+<a class="btn" style="background:rgba(255,255,255,.15);color:#fff;box-shadow:none" href="#" onclick="show('page1');return false">← Voltar</a>
 <div class="progress"><span></span><span class="on"></span></div>
 </div>
 </div>
